@@ -45,8 +45,8 @@ Un sistema web que centralice la información de productos, materias primas, inv
 
 ## Documentación
 
-- [Documento de planeación del proyecto](planeacion_proyecto%20.docx)
-
+- [Documento de planeación del proyecto](https://github.com/robin4550/sistema-gestion-produccion/blob/main/planeacion_proyecto%20.docx)
+  
 ## Estado del proyecto
 
 - [x] 1.1 Planeación
