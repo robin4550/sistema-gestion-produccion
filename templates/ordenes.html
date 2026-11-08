@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block titulo %}Órdenes{% endblock %}
+{% block contenido %}<h1>Órdenes de producción</h1>
+{% if crea %}<form class="fila" method="post"><label>Producto<select name="producto_id">{% for p in prods %}<option value="{{ p.id }}">{{ p.codigo }} - {{ p.nombre }}</option>{% endfor %}</select></label>
+<label>Cantidad<input name="cantidad" type="number" min="1" required></label><button class="primario">Registrar orden</button></form>{% endif %}
+<div class="tabla"><table><tr><th>N.º</th><th>Producto</th><th>Cantidad</th><th>Fecha</th><th>Responsable</th><th>Estado</th></tr>
+{% for o in datos %}<tr><td>{{ o.id }}</td><td>{{ o.producto }}</td><td>{{ o.cantidad }}</td><td>{{ o.fecha }}</td><td>{{ o.responsable }}</td>
+<td>{% if session.rol != 'inventario' and o.estado != 'Terminada' %}<form method="post" action="{{ url_for('orden_estado', oid=o.id) }}"><select name="estado">{% for e in estados %}<option {{ 'selected' if e == o.estado }}>{{ e }}</option>{% endfor %}</select><button>Cambiar</button></form>{% else %}{{ o.estado }}{% endif %}</td></tr>
+{% else %}<tr><td colspan="6">Aún no hay órdenes de producción.</td></tr>{% endfor %}</table></div>{% endblock %}

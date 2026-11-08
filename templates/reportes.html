@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block titulo %}Reportes{% endblock %}
+{% block contenido %}<h1>Reportes básicos</h1>
+<div class="cifras">{% for e, n in por_estado.items() %}<div><b>{{ n }}</b>Órdenes {{ e|lower }}s</div>{% endfor %}</div>
+<h2>Materias primas bajo el mínimo</h2>
+<div class="tabla"><table><tr><th>Materia prima</th><th>Existencias</th><th>Mínimo</th></tr>
+{% for m in bajas %}<tr><td>{{ m.nombre }}</td><td class="alerta">{{ m.existencias }} {{ m.unidad }}</td><td>{{ m.minimo }} {{ m.unidad }}</td></tr>
+{% else %}<tr><td colspan="3">Todas las materias primas están por encima del mínimo.</td></tr>{% endfor %}</table></div>
+<h2>Productos terminados</h2>
+<div class="tabla"><table><tr><th>Producto</th><th>Unidades terminadas</th></tr>
+{% for p in prods %}<tr><td>{{ p.nombre }}</td><td>{{ p.terminados }}</td></tr>{% endfor %}</table></div>{% endblock %}

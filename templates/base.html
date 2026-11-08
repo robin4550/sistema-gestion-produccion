@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block titulo %}{% endblock %} - Control de producción</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head><body>
+{% if session.rol %}<header><strong>Control de producción</strong><nav>
+<a href="{{ url_for('productos') }}">Productos</a><a href="{{ url_for('materias') }}">Materias primas</a>
+<a href="{{ url_for('ordenes') }}">Órdenes</a>
+{% if session.rol in ('admin','jefe') %}<a href="{{ url_for('reportes') }}">Reportes</a>{% endif %}
+{% if session.rol == 'admin' %}<a href="{{ url_for('usuarios') }}">Usuarios</a>{% endif %}
+<span>{{ session.nombre }} ({{ session.rol }})</span><a href="{{ url_for('logout') }}">Cerrar sesión</a></nav></header>{% endif %}
+<main>{% for cat, m in get_flashed_messages(with_categories=true) %}<p class="msg {{ cat }}">{{ m }}</p>{% endfor %}
+{% block contenido %}{% endblock %}</main></body></html>

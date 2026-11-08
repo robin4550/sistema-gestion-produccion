@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block titulo %}Producto{% endblock %}
+{% block contenido %}<h1>{{ 'Editar producto' if p else 'Nuevo producto' }}</h1>
+<form class="fila" method="post"><label>Código<input name="codigo" value="{{ p.codigo if p else request.form.codigo }}" required></label>
+<label>Nombre<input name="nombre" value="{{ p.nombre if p else request.form.nombre }}" required></label>
+<label>Descripción<input name="descripcion" value="{{ p.descripcion if p else request.form.descripcion }}"></label>
+<button class="primario">Guardar producto</button><a class="btn" href="{{ url_for('productos') }}">Cancelar</a></form>{% endblock %}

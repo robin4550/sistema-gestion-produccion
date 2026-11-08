@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block titulo %}Productos{% endblock %}
+{% block contenido %}<h1>Productos</h1>
+{% if edita %}<p><a class="btn primario" href="{{ url_for('producto_form') }}">Nuevo producto</a></p>{% endif %}
+<div class="tabla"><table><tr><th>Código</th><th>Nombre</th><th>Descripción</th><th>Terminados</th>{% if edita %}<th>Acciones</th>{% endif %}</tr>
+{% for p in datos %}<tr><td>{{ p.codigo }}</td><td>{{ p.nombre }}</td><td>{{ p.descripcion }}</td><td>{{ p.terminados }}</td>
+{% if edita %}<td><a class="btn" href="{{ url_for('producto_form', pid=p.id) }}">Editar</a>
+<form method="post" action="{{ url_for('producto_eliminar', pid=p.id) }}" onsubmit="return confirm('¿Eliminar este producto?')"><button class="peligro">Eliminar</button></form></td>{% endif %}</tr>
+{% else %}<tr><td colspan="5">Aún no hay productos. Registra el primero.</td></tr>{% endfor %}</table></div>{% endblock %}

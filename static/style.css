@@ -1,0 +1,29 @@
+:root{--acero:#1d2b36;--fondo:#f2f4f5;--linea:#d3d9dd;--amarillo:#f2b705;--texto:#1b2227;--rojo:#b3261e;--verde:#2e7d32}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--texto);font:16px/1.5 "Segoe UI",Roboto,Arial,sans-serif}
+header{background:var(--acero);color:#fff;border-bottom:4px solid var(--amarillo);display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;padding:12px 24px}
+header nav{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+header a{color:#fff;text-decoration:none}header a:hover{color:var(--amarillo)}
+header span{color:#aebbc4;font-size:.9rem}
+main{max-width:1000px;margin:24px auto;padding:0 16px}
+h1{font-size:1.6rem;margin:0 0 16px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--linea)}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--linea)}
+th{background:var(--acero);color:#fff;font-weight:600}
+.tabla{overflow-x:auto;margin-bottom:24px}
+form.fila{display:flex;flex-wrap:wrap;gap:10px;align-items:end;background:#fff;border:1px solid var(--linea);padding:14px;margin-bottom:20px}
+label{display:flex;flex-direction:column;font-size:.9rem;gap:4px}
+input,select,textarea{padding:8px;border:1px solid #9aa6ad;border-radius:3px;font:inherit;background:#fff}
+input:focus,select:focus,button:focus,a:focus{outline:3px solid var(--amarillo);outline-offset:1px}
+button,.btn{background:var(--acero);color:#fff;border:0;border-radius:3px;padding:8px 14px;font:inherit;cursor:pointer;text-decoration:none;display:inline-block}
+.primario{background:var(--amarillo);color:var(--acero);font-weight:600}
+.peligro{background:var(--rojo)}
+td form{display:inline-flex;gap:6px}
+.msg{padding:10px 14px;border-left:5px solid;background:#fff;margin:0 0 16px}
+.ok{border-color:var(--verde)}.error{border-color:var(--rojo)}
+.alerta{color:var(--rojo);font-weight:600}
+.cifras{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
+.cifras div{background:#fff;border:1px solid var(--linea);border-left:5px solid var(--amarillo);padding:12px 20px;min-width:150px}
+.cifras b{display:block;font-size:2rem}
+.login{max-width:360px;margin:12vh auto}
+.login form{display:flex;flex-direction:column;gap:14px;background:#fff;border:1px solid var(--linea);padding:20px}

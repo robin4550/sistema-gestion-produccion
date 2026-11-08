@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block titulo %}Materias primas{% endblock %}
+{% block contenido %}<h1>Materias primas</h1>
+{% if edita %}<form class="fila" method="post"><label>Nombre<input name="nombre" required></label>
+<label>Unidad<input name="unidad" placeholder="kg, m, unidades" required></label>
+<label>Existencias<input name="existencias" type="number" step="any" min="0" required></label>
+<label>Mínimo<input name="minimo" type="number" step="any" min="0" required></label><button class="primario">Registrar materia prima</button></form>{% endif %}
+<div class="tabla"><table><tr><th>Materia prima</th><th>Unidad</th><th>Existencias</th><th>Mínimo</th><th>Estado</th></tr>
+{% for m in datos %}<tr><td>{{ m.nombre }}</td><td>{{ m.unidad }}</td>
+<td>{% if edita %}<form method="post" action="{{ url_for('materia_existencias', mid=m.id) }}"><input name="existencias" type="number" step="any" min="0" value="{{ m.existencias }}" style="width:90px"><button>Actualizar</button></form>{% else %}{{ m.existencias }}{% endif %}</td>
+<td>{{ m.minimo }}</td><td>{% if m.existencias < m.minimo %}<span class="alerta">Bajo el mínimo</span>{% else %}Suficiente{% endif %}</td></tr>
+{% else %}<tr><td colspan="5">Aún no hay materias primas registradas.</td></tr>{% endfor %}</table></div>{% endblock %}
